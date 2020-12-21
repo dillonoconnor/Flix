@@ -166,3 +166,10 @@ Movie.create!([
     image_file_name: "wonder-woman.png"
   }
 ])
+
+genres = ['Action', 'Comedy', 'Drama', 'Romance', 'Thriller',
+          'Fantasy', 'Documentary', 'Adventure', 'Animation',
+          'Sci-Fi']
+
+genres.each { |genre| Genre.create!(name: genre) }
+

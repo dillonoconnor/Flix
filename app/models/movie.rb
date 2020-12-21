@@ -29,8 +29,6 @@ class Movie < ApplicationRecord
   scope :grossed_less_than, ->(amt) { released.where("total_gross < ?", amt) }
 
   before_save :set_slug
-  before_save :lowercase_user
-  before_save :lowercase_email
 
   def flop?
     unless reviews.count > 50 && reviews.average(:stars) > 4
@@ -53,12 +51,5 @@ class Movie < ApplicationRecord
   def to_param
     slug
   end
-
-  def lowercase_user
-    self.username = username.downcase
-  end
-
-  def lowercase_email
-    self.email = email.downcase
-  end
+  
 end
